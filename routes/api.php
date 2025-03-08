@@ -27,6 +27,7 @@ Route::middleware('auth:sanctum')->post('/logout', [UserController::class, 'logo
 Route::middleware('auth:sanctum')->post('/questions',[QuestionController::class, 'store']);
 
 Route::get('/questions', [QuestionController::class, 'index']);
+Route::get('/questions/{id}', [QuestionController::class, 'show']);
 
 
 Route::get('/questions/{questionId}/answers', [AnswerController::class,'show']);

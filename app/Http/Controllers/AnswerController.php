@@ -31,6 +31,7 @@ class AnswerController extends Controller
     public function store(Request $request)
     {
         $user = $request->user();
+        
         $validator = Validator::make($request->all(),[
             'content' => 'required|string|min:5'
         ]);
@@ -52,7 +53,7 @@ class AnswerController extends Controller
      */
     public function show(string $questionId)
     {
-        $questionAnswers = Answer::where('question_id',$questionId)->get();
+        $questionAnswers = Answer::where('question_id',$questionId)->with('user:id,name')->get();
         return response()->json($questionAnswers,200);
     }
 

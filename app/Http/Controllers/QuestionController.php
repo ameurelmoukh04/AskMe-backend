@@ -14,7 +14,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
+        $questions = Question::with('user:id,name')->get();
         return response()->json($questions);
     }
 
@@ -52,7 +52,8 @@ class QuestionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $question = Question::findOrFail($id);
+        return $question;
     }
 
     /**

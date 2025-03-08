@@ -2,7 +2,7 @@
 
 return [
 
-    'paths' => ['*'],
+    'paths' => ['api/*'],
     'allowed_methods' => ['GET','POST'],
     'allowed_origins' => ['http://localhost:5173'],
     'allowed_origins_patterns' => [],
